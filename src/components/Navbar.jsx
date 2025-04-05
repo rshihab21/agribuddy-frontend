@@ -27,11 +27,11 @@ const Navbar = () => {
 
       <li>
         <Link
-          to="/login"
+          to="/signin"
           className="bg-white text-black px-4 py-2 rounded-md hover:bg-gray-200"
           onClick={() => setIsOpen(false)}
         >
-          Login
+          Sign In
         </Link>
       </li>
       <li>
@@ -67,10 +67,10 @@ const Navbar = () => {
           {/* Right Side - Login/Register */}
           <div className="hidden md:flex space-x-4">
             <Link
-              to="/login"
+              to="/signin"
               className="bg-white text-blue-600 px-4 py-2 rounded-md hover:bg-gray-200"
             >
-              Login
+              Sign In
             </Link>
             <Link
               to="/register"
