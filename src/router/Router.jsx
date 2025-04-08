@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Register from "../pages/Register";
 import SignIn from "../pages/SignIn";
+import AgriLearning from "../pages/AgriLearning";
+import AgriLearningDetails from "../pages/AgriLearningDetails";
 
 const Router = () => {
   return (
@@ -11,8 +13,16 @@ const Router = () => {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/signin" element={<SignIn></SignIn>}></Route>
+        <Route path="register" element={<Register></Register>}></Route>
+        <Route path="signin" element={<SignIn></SignIn>}></Route>
+        <Route
+          path="agrilearning"
+          element={<AgriLearning></AgriLearning>}
+        ></Route>
+        <Route
+          path="agrilearningdetails/:agriDetails"
+          element={<AgriLearningDetails></AgriLearningDetails>}
+        ></Route>
       </Routes>
       <Footer></Footer>
     </div>

@@ -11,6 +11,11 @@ const Navbar = () => {
           Home
         </Link>
       </li>
+      <li>
+        <Link to="/agrilearning" className="hover:text-gray-300 font-semibold">
+          Agricultural Learning
+        </Link>
+      </li>
     </>
   );
   const mobildeMenu = (
@@ -22,6 +27,15 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
         >
           Home
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/agrilearning"
+          className="hover:text-gray-300"
+          onClick={() => setIsOpen(false)}
+        >
+          Agricultural Learning
         </Link>
       </li>
 
