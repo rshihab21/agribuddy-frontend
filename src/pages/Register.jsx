@@ -1,8 +1,87 @@
 import Lottie from "lottie-react";
 import resgisterAnimation from "../assets/register.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  const navigate = useNavigate();
+  const { createUser, user, userProfileUpdate, googleLogin } = useAuth();
+  const handleChecked = () => {
+    setIsChecked(!isChecked);
+  };
+
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const repassword = form.repassword.value;
+    if (password != repassword) {
+      alert("password doesn't match");
+      return;
+    }
+
+    console.log(name, email, password, repassword);
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        userProfileUpdate(name)
+          .then(() => {})
+          .catch(() => {});
+        if (result.user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Registration is successfull",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        }
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.log(err.message);
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err.message,
+          });
+        }
+      });
+  };
+
+  const handleGooglePopupLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        if (result.user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Registration is successfull",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err.message,
+          });
+        }
+      });
+  };
   return (
     <div className="container mx-auto flex flex-col md:flex-row">
       {/* Left: lottie image */}
@@ -16,7 +95,10 @@ const Register = () => {
             Pleage Register Now!
           </h1>
 
-          <button className="w-full flex items-center justify-center border border-gray-300 py-2 rounded-lg mb-4 hover:bg-gray-100">
+          <button
+            onClick={handleGooglePopupLogin}
+            className="w-full flex items-center justify-center border border-gray-300 py-2 rounded-lg mb-4 hover:bg-gray-100"
+          >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               alt="Google"
@@ -31,13 +113,13 @@ const Register = () => {
             <hr className="flex-grow border-gray-300" />
           </div>
 
-          <form className="space-y-4">
+          <form onSubmit={handleRegistration} className="space-y-4">
             <div>
               <label className="text-sm font-medium">Full Name *</label>
               <input
                 type="text"
                 name="name"
-                placeholder="Steven Job"
+                placeholder="Agri Buddy"
                 className="w-full border rounded-lg px-4 py-2 mt-1"
               />
             </div>
@@ -47,7 +129,7 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="stevenjob@gmail.com"
+                placeholder="agribuddy@gmail.com"
                 className="w-full border rounded-lg px-4 py-2 mt-1"
               />
             </div>
@@ -72,9 +154,14 @@ const Register = () => {
             </div>
 
             <div className="flex items-center">
-              <input type="checkbox" className="mr-2" />
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleChecked}
+                className="mr-2"
+              />
               <span className="text-sm">
-                Agree our terms and policy{" "}
+                Agree our terms and policy
                 <a href="#" className="text-green-600 hover:underline">
                   Learn more
                 </a>
@@ -83,7 +170,10 @@ const Register = () => {
 
             <button
               type="submit"
-              className="w-full bg-green-900 text-white py-2 rounded-lg hover:bg-green-800 cursor-pointer"
+              disabled={!isChecked}
+              className={`w-full ${
+                isChecked ? "bg-green-900" : "bg-green-200 cursor-not-allowed"
+              } text-white py-2 rounded-lg  cursor-pointer`}
             >
               Register Now
             </button>

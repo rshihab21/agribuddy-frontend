@@ -1,7 +1,67 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signInAnimation from "../assets/signin.json";
 import Lottie from "lottie-react";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 const SignIn = () => {
+  const { signInUser, googleLogin } = useAuth();
+  const navigate = useNavigate();
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        if (result.user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Sign In is successfull",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          e.target.reset();
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err.message,
+          });
+        }
+      });
+  };
+  const handleGooglePopupLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        if (result.user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Registration is successfull",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err.message,
+          });
+        }
+      });
+  };
   return (
     <div className="container mx-auto flex flex-col md:flex-row">
       {/* Left: Sign In Form  */}
@@ -14,7 +74,10 @@ const SignIn = () => {
             Member Login
           </h1>
 
-          <button className="w-full flex items-center justify-center border border-gray-300 py-2 rounded-lg mb-4 hover:bg-gray-100 cursor-pointer">
+          <button
+            onClick={handleGooglePopupLogin}
+            className="w-full flex items-center justify-center border border-gray-300 py-2 rounded-lg mb-4 hover:bg-gray-100 cursor-pointer"
+          >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               alt="Google"
@@ -29,7 +92,7 @@ const SignIn = () => {
             <hr className="flex-grow border-gray-300" />
           </div>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSignIn} className="space-y-4">
             <div>
               <label className="text-sm font-medium">Email address *</label>
               <input
