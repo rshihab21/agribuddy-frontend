@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import SignIn from "../pages/SignIn";
 import AgriLearning from "../pages/AgriLearning";
 import AgriLearningDetails from "../pages/AgriLearningDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = () => {
   return (
@@ -21,7 +22,11 @@ const Router = () => {
         ></Route>
         <Route
           path="agrilearningdetails/:agriDetails"
-          element={<AgriLearningDetails></AgriLearningDetails>}
+          element={
+            <PrivateRoute>
+              <AgriLearningDetails></AgriLearningDetails>
+            </PrivateRoute>
+          }
         ></Route>
       </Routes>
       <Footer></Footer>

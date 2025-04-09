@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import signInAnimation from "../assets/signin.json";
 import Lottie from "lottie-react";
 import useAuth from "../hooks/useAuth";
@@ -6,6 +6,9 @@ import Swal from "sweetalert2";
 const SignIn = () => {
   const { signInUser, googleLogin } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,6 +17,7 @@ const SignIn = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+
         if (result.user) {
           Swal.fire({
             position: "top-end",
@@ -23,7 +27,7 @@ const SignIn = () => {
             timer: 1500,
           });
           e.target.reset();
-          navigate("/");
+          navigate(from, { replace: true });
         }
       })
       .catch((err) => {
@@ -48,7 +52,7 @@ const SignIn = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/");
+          navigate(from, { replace: true });
         }
       })
       .catch((err) => {
