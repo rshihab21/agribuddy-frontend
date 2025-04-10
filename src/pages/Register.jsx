@@ -131,6 +131,7 @@ const Register = () => {
                 name="email"
                 placeholder="agribuddy@gmail.com"
                 className="w-full border rounded-lg px-4 py-2 mt-1"
+                required
               />
             </div>
             <div>
@@ -140,6 +141,7 @@ const Register = () => {
                 name="password"
                 className="w-full border rounded-lg px-4 py-2 mt-1"
                 placeholder="password"
+                required
               />
             </div>
 
@@ -150,6 +152,7 @@ const Register = () => {
                 name="repassword"
                 className="w-full border rounded-lg px-4 py-2 mt-1"
                 placeholder="Re-Type password"
+                required
               />
             </div>
 
