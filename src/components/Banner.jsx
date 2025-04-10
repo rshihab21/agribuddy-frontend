@@ -7,14 +7,14 @@ const Banner = () => {
       <div className="md:grid grid-cols-2 py:12 md:py-4 flex justify-center items-center p-4">
         <div>
           <h4 className="text-2xl font-semibold text-green-600">
-            Make Dream Gardening
+            Make Dream Farming
           </h4>
           <motion.h2 className="text-5xl font-bold leading-14">
-            Landscaping & Maintenance
+            Growing Your Hervest
           </motion.h2>
           <p className="text-xl mt-2">
-            Dissuade ecstatic and properly saw entirely sir why laughter
-            endeavor. In on my jointure horrible margaret suitable he followed.
+            AgriBuddy provides helpful information to improve harvests of crops
+            like paddy, vegetables, and more
           </p>
           <motion.button
             whileHover={{ scale: 1.1 }}

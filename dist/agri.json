@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "image_url": "https://ecogrow.axiomthemes.com/wp-content/uploads/2020/04/image37-copyright-890x664.jpg",
+    "category": "Greenhouse",
+    "date": "2020-04-21",
+    "title": "Trendy Container Plants and Ideas for a Potted Garden",
+    "description": "Discover popular container plants and learn creative ideas to design your own potted garden, even in small spaces.",
+    "author": "Jane Doe",
+    "comments": 12
+  },
+  {
+    "id": 2,
+    "image_url": "https://ecogrow.axiomthemes.com/wp-content/uploads/2020/04/image38-copyright-890x664.jpg",
+    "category": "Organic Farming",
+    "date": "2021-06-15",
+    "title": "Benefits of Organic Fertilizers in Modern Agriculture",
+    "description": "Learn how organic fertilizers can improve soil health and increase crop productivity sustainably.",
+    "author": "John Smith",
+    "comments": 8
+  },
+  {
+    "id": 3,
+    "image_url": "https://ecogrow.axiomthemes.com/wp-content/uploads/2020/04/image39-copyright-890x664.jpg",
+    "category": "Soil Health",
+    "date": "2022-03-10",
+    "title": "How to Test and Improve Your Soil Quality",
+    "description": "A step-by-step guide for farmers to test soil and enhance fertility for better yields.",
+    "author": "Emily Green",
+    "comments": 5
+  },
+  {
+    "id": 4,
+    "image_url": "https://ecogrow.axiomthemes.com/wp-content/uploads/2020/04/image40-copyright-890x664.jpg",
+    "category": "AgriTech",
+    "date": "2023-01-25",
+    "title": "Top 5 AgriTech Tools That Every Farmer Should Know",
+    "description": "Explore the latest agri-technology tools transforming modern agriculture for better productivity.",
+    "author": "Ravi Kumar",
+    "comments": 10
+  },
+  {
+    "id": 5,
+    "image_url": "https://ecogrow.axiomthemes.com/wp-content/uploads/2023/09/image06-copyright-890x664.jpg",
+    "category": "Weather Alert",
+    "date": "2023-08-12",
+    "title": "Preparing Your Farm for the Monsoon Season",
+    "description": "Essential tips and best practices to protect your crops and livestock during the rainy season.",
+    "author": "Fatima Rahman",
+    "comments": 6
+  },
+  {
+    "id": 6,
+    "image_url": "https://ecogrow.axiomthemes.com/wp-content/uploads/2020/04/image51-copyright-890x664.jpg",
+    "category": "Pest Control",
+    "date": "2024-02-28",
+    "title": "Natural Ways to Control Crop Pests Without Chemicals",
+    "description": "Discover eco-friendly techniques to manage pests and keep your crops healthy organically.",
+    "author": "David Liu",
+    "comments": 9
+  }
+]

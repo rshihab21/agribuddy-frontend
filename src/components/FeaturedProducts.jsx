@@ -1,48 +1,59 @@
 import { motion } from "motion/react";
-
+import product_one from "../assets/images/Vector-Smart-Object-1.png";
+import product_two from "../assets/images/Vector-Smart-Object-2.png";
+import product_three from "../assets/images/Vector-Smart-Object-4.png";
+import product_four from "../assets/images/Vector-Smart-Object-5.png";
+import product_five from "../assets/images/paddy.png";
+import product_six from "../assets/images/Vector-Smart-Object-6.png";
+import product_seven from "../assets/images/Vector-Smart-Object-8.png";
+import product_eight from "../assets/images/Vector-Smart-Object-9.png";
+import product_nine from "../assets/images/Vector-Smart-Object-10.png";
+import product_ten from "../assets/images/Vector-Smart-Object-11.png";
+import product_eleven from "../assets/images/Vector-Smart-Object-12.png";
+import product_thirty from "../assets/images/Vector-Smart-Object-13.png";
 const FeaturedProducts = () => {
   const products = [
     {
       name: "Awesome Brokoli",
-      img: "src/assets/images/Vector-Smart-Object-1.png",
+      img: product_one,
     },
     {
       name: "Orange Pumpkin",
-      img: "src/assets/images/Vector-Smart-Object-2.png",
+      img: product_two,
     },
     {
       name: "Juicy Tomato",
-      img: "src/assets/images/Vector-Smart-Object-4.png",
+      img: product_three,
     },
     {
       name: "Crispy Cabbage",
-      img: "src/assets/images/Vector-Smart-Object-5.png",
+      img: product_four,
     },
-    { name: "Bomb Corn", img: "src/assets/images/paddy.png" },
+    { name: "Bomb Corn", img: product_five },
     {
       name: "The Best Potato",
-      img: "src/assets/images/Vector-Smart-Object-6.png",
+      img: product_six,
     },
     {
       name: "Juicy Radish",
-      img: "src/assets/images/Vector-Smart-Object-8.png",
+      img: product_seven,
     },
     {
       name: "Orange Pumpkin",
-      img: "src/assets/images/Vector-Smart-Object-9.png",
+      img: product_eight,
     },
     {
       name: "Awesome Gross",
-      img: "src/assets/images/Vector-Smart-Object-10.png",
+      img: product_nine,
     },
     {
       name: "Blue Eggplant",
-      img: "src/assets/images/Vector-Smart-Object-11.png",
+      img: product_ten,
     },
-    { name: "Red Radish", img: "src/assets/images/Vector-Smart-Object-12.png" },
+    { name: "Red Radish", img: product_eleven },
     {
       name: "Walnut Olives",
-      img: "src/assets/images/Vector-Smart-Object-13.png",
+      img: product_thirty,
     },
   ];
   return (
